@@ -7,7 +7,7 @@ export const getAllUser = async(req,res,next)=>{
     try {
        users= await User.find()
     } catch (error) {
-        console.log("error in usercontroller" ,error);
+        console.log("error in user controller" ,error);
     }
     if(!users){
         return res.status(404).json({message:"No user found"});
@@ -33,7 +33,8 @@ export const signup = async (req,res,next)=>{
     const user=new User({
         aname,
         email,
-        password:hashedPassword
+        password:hashedPassword,
+        blogs:[]
     });
     
     try {
